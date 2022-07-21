@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Record from "./component/records/index";
+import Homepage from "./component/screen/homepage";
+import Employee from "./component/form/employeeform";
+import Student from "./component/form/studentform";
+import StudentDetails from "./component/GetRecords/StudentDetails";
+import EmployeeDetails from "./component/GetRecords/EmployeeDetails";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/student">
+            <Record Category={"student"} />
+          </Route>
+          <Route path="/employee">
+            <Record Category={"employee"} />
+          </Route>
+          <Route path="/addform/Employee">
+            <Employee />
+          </Route>
+          <Route path="/addform/Student">
+            <Student />
+          </Route>
+          <Route path="/addform/Student/:id/?mode=update">
+            <StudentDetails />
+          </Route>
+          <Route path="/addform/Student/:id/?mode=view">
+            <StudentDetails />
+          </Route>
+          <Route path="/addform/Employee/:id/?mode=update">
+            <EmployeeDetails />
+          </Route>
+          <Route path="/addform/Employee/:id/?mode=view">
+            <EmployeeDetails />
+          </Route>
+          <Route path="/">
+            <Homepage />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
