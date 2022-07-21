@@ -61,17 +61,19 @@ function Employeeform() {
         )
         .then((res) => alert("Details has been updated successfully!!!"))
         .catch((Error) => console.log(Error));
-        event.preventDefault();
-      return
+      event.preventDefault();
+      return;
     }
     if (form.checkValidity() === true) {
       axios
         .post(createEmployee, employeeDetails)
         .then((res) => alert("Created New Employee"))
         .catch((Error) => console.log(Error));
-        event.preventDefault();
+      event.preventDefault();
+      return;
     }
-    
+    event.preventDefault();
+
     setValidated(true);
   };
 

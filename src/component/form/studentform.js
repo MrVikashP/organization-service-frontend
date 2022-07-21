@@ -70,6 +70,7 @@ function Studentform() {
       event.preventDefault();
       return;
     }
+    event.preventDefault();
     setValidated(true);
   };
   const onChangeHandler = (event) => {
